@@ -9,7 +9,19 @@
         const handleShow = () => setShow(true);
         console.log(props)
         // console.log(show)
-      
+        let details = [];
+        let count = 0
+        for (const property in props.data) {
+            if(props.data[property].length !== 0){
+                details.push(
+                    <p key={count}>
+                      {property}: {props.data[property]}
+                    </p>
+                  );
+            }
+          
+          count++
+        }
         return (
             <>
             {/* <button type="submit" onClick={handleShow}>Submit</button>  */}
@@ -22,7 +34,10 @@
                 <Modal.Header closeButton>
                   <Modal.Title>Cornfirm Subssion</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                <Modal.Body>
+                {details}
+               
+                </Modal.Body>
                 <Modal.Footer>
                   <Button variant="secondary" onClick={()=>props.setModalShow(false)}>
                      Cancel
