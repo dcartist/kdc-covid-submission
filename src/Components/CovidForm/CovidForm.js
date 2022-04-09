@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-
+import CovidModal from "../CovidModal/CovidModal"
 export default function CovidForm() {
       // Track whether the form has been submitted by the user
   const [submitted, setSubmitted] = useState(false);
+  const [modalshow, setModalShow] = useState(false);
   // You may need additional calls to useState to confirm the submitted data.
   function results(data){
     console.log(data)
@@ -45,10 +46,12 @@ export default function CovidForm() {
             // Update this to handle a successful form
             // Make sure we can display the submitted values back to the user
             // In a real app we'd save to the database here.
-            setSubmitted(true);
-
+            // setSubmitted(true);
+            setModalShow(!modalshow)
+            console.log("click")
+            console.log(modalshow)
             // Delete this alert when your implementation is complete.
-            window.alert(JSON.stringify(values));
+            // window.alert(JSON.stringify(values));
           }}
         >
           {
@@ -118,7 +121,9 @@ export default function CovidForm() {
                 </div>
                 <br></br>
                 <div>
-                  <button type="submit" onClick={(e)=>results(values)}>Submit</button>
+                  <CovidModal showModal={modalshow} setModalShow={setModalShow} data={values}></CovidModal>
+                  <button type="submit">Submit</button>
+                  {/* <button type="submit" onClick={(e)=>results(values)}>Submit</button> */}
                 </div>
               </Form>
             )
