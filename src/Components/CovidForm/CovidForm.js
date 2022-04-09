@@ -6,7 +6,9 @@ export default function CovidForm() {
       // Track whether the form has been submitted by the user
   const [submitted, setSubmitted] = useState(false);
   // You may need additional calls to useState to confirm the submitted data.
-  
+  function results(data){
+    console.log(data)
+  }
   return (
     <div>
         
@@ -19,7 +21,7 @@ export default function CovidForm() {
             // Update the initial values object below to include all possible form fields,
             // and to set any default values, if necessary
             // https://formik.org/docs/api/formik#initialvalues-values
-            { name: "", school: "" }
+            { name: "", school: "", phone: "", email: "", school_role: "", guardian_name: ""}
           }
           validationSchema={
             // TO-DO
@@ -27,7 +29,15 @@ export default function CovidForm() {
             // Conditional validation in Yup: https://stackoverflow.com/questions/49394391/conditional-validation-in-yup
             Yup.object({
               name: Yup.string().required("Required"),
-              school: Yup.string().required("Required")
+              school: Yup.string().required("Required"),
+              phone: Yup.string().required("Required"),
+              school_role: Yup.string().required("Required"),
+              email: Yup.string().email().required("You must have a valid email"),
+              guardian_name: Yup.string().when('school_role', {
+                is: 'student',
+                then: Yup.string()
+                  .required('You must enter guardian`s name'),
+              })
             })
           }
           onSubmit={(values) => {
@@ -72,9 +82,43 @@ export default function CovidForm() {
                 </div>
                 <br />
 
+                <div role="group" aria-labelledby="rolegroup">
+            <label>
+              <Field type="radio" name="school_role" value="student" />
+              Student
+            </label>
+            <label>
+              <Field type="radio" name="school_role" value="staff" />
+              Staff
+            </label>
+            <ErrorMessage name="school_role" component="div" />
+          </div>
+
+          { values.school_role == "student" && (
+            <div>
+            <label>Guardian Name: </label>
+            <Field type="text" name="guardian_name" />
+            <ErrorMessage name="guardian_name" component="div" />
+          </div>
+          )
+
+          }
+
                 <br />
                 <div>
-                  <button type="submit">Submit</button>
+                  <label>{values.school_role == "student"  && <span>Guardian</span> } Phone:  </label>
+                  <Field type="text" name="phone" />
+                  <ErrorMessage name="phone" component="div" />
+                </div>
+                <br></br>
+                <div>
+                  <label>{values.school_role == "student"  &&  <span>Guardian</span> } Email:  </label>
+                  <Field type="email" name="email" />
+                  <ErrorMessage name="email" component="div" />
+                </div>
+                <br></br>
+                <div>
+                  <button type="submit" onClick={(e)=>results(values)}>Submit</button>
                 </div>
               </Form>
             )
