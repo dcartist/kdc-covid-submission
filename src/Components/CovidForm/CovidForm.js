@@ -22,7 +22,7 @@ export default function CovidForm() {
             // Update the initial values object below to include all possible form fields,
             // and to set any default values, if necessary
             // https://formik.org/docs/api/formik#initialvalues-values
-            { name: "", school: "", phone: "", email: "", school_role: "", guardian_name: ""}
+            { name: "", school: "", phone: "", email: "", school_role: "", guardian_name: "", symptoms: ""}
           }
           validationSchema={
             // TO-DO
@@ -38,7 +38,9 @@ export default function CovidForm() {
                 is: 'student',
                 then: Yup.string()
                   .required('You must enter guardian`s name'),
-              })
+              }),
+              symptoms: Yup.string().required("Required"),
+              covid: Yup.string().required("Required"),
             })
           }
           onSubmit={(values) => {
@@ -96,6 +98,7 @@ export default function CovidForm() {
             </label>
             <ErrorMessage name="school_role" component="div" />
           </div>
+                
 
           { values.school_role == "student" && (
             <div>
@@ -119,6 +122,33 @@ export default function CovidForm() {
                   <Field type="email" name="email" />
                   <ErrorMessage name="email" component="div" />
                 </div>
+                <br></br>
+                <p> Are you experiencing symptoms?</p>
+                <div role="group" aria-labelledby="symptomsgroup">
+            <label>
+              <Field type="radio" name="symptoms" value="true" />
+              Yes
+            </label>
+            <label>
+              <Field type="radio" name="symptoms" value="false" />
+              No
+            </label>
+            <ErrorMessage name="symptoms" component="div" />
+          </div>
+                <br></br>
+                <br></br>
+                <p> Have you tested positive for COVID?</p>
+                <div role="group" aria-labelledby="covidgroup">
+            <label>
+              <Field type="radio" name="covid" value="true" />
+              Yes
+            </label>
+            <label>
+              <Field type="radio" name="covid" value="false" />
+              No
+            </label>
+            <ErrorMessage name="symptoms" component="div" />
+          </div>
                 <br></br>
                 <div>
                   <CovidModal showModal={modalshow} setModalShow={setModalShow} data={values}></CovidModal>
