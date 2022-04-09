@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-export default function OrginalForm() {
+export default function CovidForm() {
       // Track whether the form has been submitted by the user
   const [submitted, setSubmitted] = useState(false);
   // You may need additional calls to useState to confirm the submitted data.
