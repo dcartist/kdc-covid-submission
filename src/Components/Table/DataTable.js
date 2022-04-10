@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
-import {Table} from "react-bootstrap"
+import {Table, Spinner} from "react-bootstrap"
 export default function DataTable() {
     const [data, setData] = useState([])
     const [loadedResults, setLoaded] = useState(false)
@@ -8,14 +8,12 @@ export default function DataTable() {
         const result = await axios(
           'https://obscure-spire-94534.herokuapp.com/api/',
         );
-          // console.log(result.data.reverse())
         setData(result.data.reverse());
       })
       
   return (
  <div>
-
-{ data.length > 0 &&(
+{ data.length > 0 ? (
   <Table striped bordered hover>
     <thead>
       <tr>
@@ -37,7 +35,9 @@ export default function DataTable() {
      
     </tbody>
   </Table>
-)}
+): (<Spinner animation="border" role="status">
+<span className="visually-hidden">Loading...</span>
+</Spinner>)}
  </div>
   )
 }

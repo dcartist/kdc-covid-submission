@@ -25,3 +25,9 @@
 .dog-image{
   max-width: 80%;
 }
+
+.home-base{
+  min-height: 80vh;
+  display: flex;
+
+}
