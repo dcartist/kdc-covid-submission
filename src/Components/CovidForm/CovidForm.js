@@ -147,7 +147,7 @@ export default function CovidForm() {
               <Field type="radio" name="covid" value="false" />
               No
             </label>
-            <ErrorMessage name="symptoms" component="div" />
+            <ErrorMessage name="covid" component="div" />
           </div>
                 <br></br>
                 <div>
@@ -173,3 +173,4 @@ export default function CovidForm() {
     </div>
   )
 }
+
