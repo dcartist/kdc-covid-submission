@@ -7,16 +7,12 @@
         const handleClose = () => {
         axios.post(`https://obscure-spire-94534.herokuapp.com/api/new`, props.data)
         .then(res => {
-        console.log(res);
-        console.log(res.data);
         setShow(false)
         props.setModalShow(false)
+        props.setSubmitted(true)
           })
-            // ()=>props.setModalShow(false)
             }
         const handleShow = () => setShow(true);
-        console.log(props)
-        // console.log(show)
         let details = [];
         let count = 0
         for (const property in props.data) {

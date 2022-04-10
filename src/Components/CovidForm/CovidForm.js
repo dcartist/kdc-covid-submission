@@ -22,7 +22,7 @@ export default function CovidForm() {
             // Update the initial values object below to include all possible form fields,
             // and to set any default values, if necessary
             // https://formik.org/docs/api/formik#initialvalues-values
-            { name: "", school: "", phone: "", email: "", school_role: "", guardian_name: "", symptoms: ""}
+            { name: "", school: "", phone: "", email: "", school_role: "", guardian_name: "", symptoms: "", covid: ""}
           }
           validationSchema={
             // TO-DO
@@ -50,8 +50,6 @@ export default function CovidForm() {
             // In a real app we'd save to the database here.
             // setSubmitted(true);
             setModalShow(!modalshow)
-            console.log("click")
-            console.log(modalshow)
             // Delete this alert when your implementation is complete.
             // window.alert(JSON.stringify(values));
           }}
@@ -65,7 +63,7 @@ export default function CovidForm() {
                 <div>
                   <label>Name: </label>
                   <Field type="text" name="name" />
-                  <ErrorMessage name="name" component="div" />
+                  <ErrorMessage name="name" component="div"  className="error-message" />
                 </div>
                 <br />
 
@@ -82,7 +80,7 @@ export default function CovidForm() {
                   <ErrorMessage
                     name="school"
                     component="div"
-                    className="error"
+                    className="error-message"
                   />
                 </div>
                 <br />
@@ -96,7 +94,7 @@ export default function CovidForm() {
               <Field type="radio" name="school_role" value="staff" />
               Staff
             </label>
-            <ErrorMessage name="school_role" component="div" />
+            <ErrorMessage name="school_role" component="div"  className="error-message" />
           </div>
                 
 
@@ -104,7 +102,7 @@ export default function CovidForm() {
             <div>
             <label>Guardian Name: </label>
             <Field type="text" name="guardian_name" />
-            <ErrorMessage name="guardian_name" component="div" />
+            <ErrorMessage name="guardian_name" component="div"  className="error-message"/>
           </div>
           )
 
@@ -114,13 +112,13 @@ export default function CovidForm() {
                 <div>
                   <label>{values.school_role == "student"  && <span>Guardian</span> } Phone:  </label>
                   <Field type="text" name="phone" />
-                  <ErrorMessage name="phone" component="div" />
+                  <ErrorMessage name="phone" component="div" className="error-message" />
                 </div>
                 <br></br>
                 <div>
                   <label>{values.school_role == "student"  &&  <span>Guardian</span> } Email:  </label>
                   <Field type="email" name="email" />
-                  <ErrorMessage name="email" component="div" />
+                  <ErrorMessage name="email" component="div" className="error-message"/>
                 </div>
                 <br></br>
                 <p> Are you experiencing symptoms?</p>
@@ -133,7 +131,7 @@ export default function CovidForm() {
               <Field type="radio" name="symptoms" value="false" />
               No
             </label>
-            <ErrorMessage name="symptoms" component="div" />
+            <ErrorMessage name="symptoms" component="div"  className="error-message"/>
           </div>
                 <br></br>
                 <br></br>
@@ -147,13 +145,12 @@ export default function CovidForm() {
               <Field type="radio" name="covid" value="false" />
               No
             </label>
-            <ErrorMessage name="covid" component="div" />
+            <ErrorMessage name="covid" component="div" className="error-message" />
           </div>
-                <br></br>
+                <br></br> 
                 <div>
-                  <CovidModal showModal={modalshow} setModalShow={setModalShow} data={values}></CovidModal>
+                  <CovidModal showModal={modalshow} setModalShow={setModalShow} setSubmitted={setSubmitted} data={values}></CovidModal>
                   <button type="submit">Submit</button>
-                  {/* <button type="submit" onClick={(e)=>results(values)}>Submit</button> */}
                 </div>
               </Form>
             )
@@ -166,7 +163,7 @@ export default function CovidForm() {
               once the form has been submitted.
           */}
           <div>
-            <p>Form submitted!</p>
+            <p>Thank you for your submission</p>
           </div>
         </>
       )}

@@ -12,3 +12,12 @@
 .logo {
   margin-left: 20px;
 }
+
+.exposure-form-base{
+  display: flex;
+  justify-content: center;
+}
+
+.error-message{
+  color: red;
+}
