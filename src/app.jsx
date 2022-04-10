@@ -6,6 +6,7 @@ import About from "./Pages/About/About"
 import Dashboard from "./Pages/Dashboard/Dashboard"
 import ExposureForm from "./Pages/ExposureForm/ExposureForm"
 import Navbar from "./Components/Navigation/Navigation"
+import Home from "./Pages/Home/Home"
 import "./styles.css";
 import "./custom.scss"
 
@@ -16,9 +17,10 @@ export default function App() {
     <div className="App">
       <Navbar></Navbar>
       <Switch>
-      <Route path="/about" component={About}/>
-      <Route path="/exposure" component={ExposureForm}/>
-      <Route path="/dashboard" component={Dashboard}/>
+      <Route path="/" exact component={Home}/>
+      <Route path="/about" exact component={About}/>
+      <Route path="/exposure" exact component={ExposureForm}/>
+      <Route path="/dashboard" exact component={Dashboard}/>
       
       </Switch>
     </div>
