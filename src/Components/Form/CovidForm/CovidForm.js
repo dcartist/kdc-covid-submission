@@ -9,9 +9,7 @@ export default function CovidForm() {
   const [submitted, setSubmitted] = useState(false);
   const [modalshow, setModalShow] = useState(false);
   // You may need additional calls to useState to confirm the submitted data.
-  function results(data) {
-    console.log(data);
-  }
+
   return (
     <div className="mb-5">
       <h1 className="text-center">COVID Case Submission</h1>
