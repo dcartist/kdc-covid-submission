@@ -10,7 +10,7 @@ export default function About() {
     <Col sm={4}>
       <h1>About</h1>
       <hr></hr>
-      <p>ABC schools is a code challenge that was created over one weekend. </p>
+      <p>ABC schools is a code challenge that was created over one weekend. Created by Candidate C. </p>
       <p>The challenge was to complete a form that someone could fill out if there were staff or a student. If they are a student, they must enter their guardian's name and details. The form has validation on every field to make sure something was checked. Email also makes sure it's a valid email address before submitting.</p>
       <p>When submitting, a modal is triggered to review your information. If the data is correct, it is saved to an API which can be viewed in the dashboard.</p>
       </Col>

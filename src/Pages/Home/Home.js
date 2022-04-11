@@ -25,8 +25,9 @@ export default function Home() {
             <p>To view results please check out the COVID dashboard</p>
 
             <Link to="/dashboard">
-              <Button>View COVID Dashboard</Button>
+              <Button className="mb-3">View COVID Dashboard</Button>
             </Link>
+            <p className="text-muted">Created by Candidate C.</p>
           </Col>
         </Row>
       </Container>
