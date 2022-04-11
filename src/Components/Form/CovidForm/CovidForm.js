@@ -281,7 +281,7 @@ export default function CovidForm() {
           */}
           <div className="thankyou-response">
             <h3>Thank you for your submission</h3>
-            <Image fluid src={dog}></Image>
+            <Image fluid src="https://kdc-covid-submission-dcartist.vercel.app/images/dogsick.jpg"></Image>
           </div>
         </>
       )}

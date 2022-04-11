@@ -6,7 +6,7 @@ export default function About() {
    <>
    <Container>
   <Row className="pt-4">
-    <Col sm={8}> <Image src={dog} fluid></Image></Col>
+    <Col sm={8}> <Image src="https://kdc-covid-submission-dcartist.vercel.app/images/puppysick.jpg" fluid></Image></Col>
     <Col sm={4}>
       <h1>About</h1>
       <hr></hr>
