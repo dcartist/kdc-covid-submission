@@ -9,15 +9,11 @@ import ExposureForm from "./Pages/ExposureForm/ExposureForm"
 import Navbar from "./Components/Navigation/Navigation"
 import Home from "./Pages/Home/Home"
 import "./styles.css";
-import "./custom.scss"
 
 export default function App() {
-  useEffect(async () => {
-    const result = await axios(
-      'https://obscure-spire-94534.herokuapp.com/api/',
-    );
-    console.log("waking up! GoodMorning")
-  })
+  // useEffect(
+  //   axios.get('https://obscure-spire-94534.herokuapp.com/api/').then((response) => {console.log("waking up")})
+  // )
 
   return (
     <div className="App">
