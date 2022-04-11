@@ -8,7 +8,7 @@ export default function Home() {
       <Container fluid className="home-base mw-100">
         <Row className="align-items-center">
           <Col sm={8}>
-            <Image src={`${process.env.PUBLIC_URL}/images/dogsick.jpg`} fluid></Image>
+            <Image src="https://kdc-covid-submission-dcartist.vercel.app/images/dogsick.jpg" fluid></Image>
           </Col>
           <Col sm={4}>
             <p className="display-6">COVID CASE FORM</p>
