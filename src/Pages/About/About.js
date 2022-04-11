@@ -37,6 +37,7 @@ export default function About() {
   <li className="list-group-item">Express</li>
   <li className="list-group-item">Mongo/Mongoose</li>
   <li className="list-group-item">Cors</li>
+  <li className="list-group-item">Faker JS</li>
   <li className="list-group-item">Heroku</li>
 </ul>
     </Col>
