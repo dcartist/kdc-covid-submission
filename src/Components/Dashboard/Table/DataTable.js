@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {Table, Spinner} from "react-bootstrap"
+import DashboardModal from "../Modal/DashboardModal"
 export default function DataTable() {
     const [data, setData] = useState([])
     const [loadedResults, setLoaded] = useState(false)
@@ -25,19 +26,19 @@ export default function DataTable() {
     </thead>
     <tbody>
     {data.map((item, index)=>
-      (<tr>
+      (<tr key={index}>
       <td>{index+1}</td>
       <td>{item.name}</td>
       <td>{item.email}</td>
-      <td> {item.school_role}</td>
+      <td> {item.school_role} </td>
     </tr>)
     )}
      
     </tbody>
   </Table>
-): (<Spinner animation="border" role="status">
+): (<div className="loading"><Spinner animation="border" role="status">
 <span className="visually-hidden">Loading...</span>
-</Spinner>)}
+</Spinner> <h1>Loading...</h1></div>)}
  </div>
   )
 }

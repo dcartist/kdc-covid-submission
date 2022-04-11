@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import CovidModal from "../CovidModal/CovidModal";
+import dog from "../../../Images/dogsick.jpg";
+import { Image } from "react-bootstrap";
 export default function CovidForm() {
   // Track whether the form has been submitted by the user
   const [submitted, setSubmitted] = useState(false);
@@ -11,9 +13,10 @@ export default function CovidForm() {
     console.log(data);
   }
   return (
-    <div>
-      <h1>COVID Case Submission</h1>
-      <p>Submit this form to alert ABC Schools to a possible COVID case.</p>
+    <div className="mb-5">
+      <h1 className="text-center">COVID Case Submission</h1>
+      <hr></hr>
+
       {!submitted ? (
         <Formik
           initialValues={
@@ -67,10 +70,16 @@ export default function CovidForm() {
             // Other available formik props: https://formik.org/docs/api/formik#props-1
             // You can use the values prop to conditionally display content. For example:
             // {values.name === 'Bob' && <p>Hi Bob!</p>}
+
             ({ values, errors, isSubmitting }) => (
               <Form>
+                <p className="text-center">
+                  Submit this form to notify ABC Schools about a covid case.
+                </p>
+
+                {/* Beginning of Name */}
                 <div>
-                  <label>Name: </label>
+                  <label className="form-label">Name: </label>
                   <Field type="text" name="name" className="form-control" />
                   <ErrorMessage
                     name="name"
@@ -79,9 +88,11 @@ export default function CovidForm() {
                   />
                 </div>
                 <br />
-
+                {/* End  of Name */}
+                
+                {/* Beginning of school selection */}
                 <div>
-                  <label>School: </label>
+                  <label className="form-label">School: </label>
                   <Field as="select" name="school" className="form-control">
                     <option />
                     <option>Aim Academy</option>
@@ -97,7 +108,14 @@ export default function CovidForm() {
                   />
                 </div>
                 <br />
+                {/* End of school selection  */}
 
+                {/* Beginning of Staff or Student */}
+                <p>
+                  Please select if you are a student or staff. If you are a
+                  student please supply your guardian's name, email and phone
+                  number.
+                </p>
                 <div role="group" aria-labelledby="rolegroup">
                   <div className="form-check form-check-inline">
                     <Field
@@ -106,7 +124,7 @@ export default function CovidForm() {
                       value="student"
                       className="form-check-input"
                     />
-                    <label class="form-check-label">Student</label>
+                    <label className="form-check-label">Student</label>
                   </div>
                   <div className="form-check form-check-inline">
                     <Field
@@ -115,7 +133,7 @@ export default function CovidForm() {
                       value="staff"
                       className="form-check-input"
                     />
-                    <label class="form-check-label">Staff</label>
+                    <label className="form-check-label">Staff</label>
                   </div>
 
                   <ErrorMessage
@@ -125,10 +143,13 @@ export default function CovidForm() {
                   />
                 </div>
 
+                {/* End of Staff or Student */}
+                <br />
+
                 {/* Adjustment for Guardian's name */}
                 {values.school_role == "student" && (
                   <div>
-                    <label>Guardian Name: </label>
+                    <label className="form-label">Guardian Name: </label>
                     <Field
                       type="text"
                       name="guardian_name"
@@ -139,11 +160,16 @@ export default function CovidForm() {
                       component="div"
                       className="error-message"
                     />
+                           <br />
                   </div>
+                  
                 )}
-                <br />
+                {/* End of adding Guardian's name */}
+         
+
+                {/* Beginning of Phone */}
                 <div>
-                  <label>
+                  <label className="form-label">
                     {values.school_role == "student" && <span>Guardian</span>}{" "}
                     Phone:{" "}
                   </label>
@@ -154,9 +180,12 @@ export default function CovidForm() {
                     className="error-message"
                   />
                 </div>
+                {/* End of Phone */}
                 <br></br>
+
+                {/* Beginning of Email */}
                 <div>
-                  <label>
+                  <label className="form-label">
                     {values.school_role == "student" && <span>Guardian</span>}{" "}
                     Email:{" "}
                   </label>
@@ -168,7 +197,10 @@ export default function CovidForm() {
                   />
                 </div>
 
+                {/* End of Email */}
                 <br></br>
+
+                {/* Beginning of Symptoms */}
                 <p> Are you experiencing symptoms?</p>
                 <div role="group" aria-labelledby="symptomsgroup">
                   <div className="form-check form-check-inline">
@@ -178,7 +210,7 @@ export default function CovidForm() {
                       value="true"
                       className="form-check-input"
                     />
-                    <label class="form-check-label">Yes</label>
+                    <label className="form-check-label">Yes</label>
                   </div>
 
                   <div className="form-check form-check-inline">
@@ -188,7 +220,7 @@ export default function CovidForm() {
                       value="false"
                       className="form-check-input"
                     />
-                    <label class="form-check-label">No</label>
+                    <label className="form-check-label">No</label>
                   </div>
                   <ErrorMessage
                     name="symptoms"
@@ -196,7 +228,9 @@ export default function CovidForm() {
                     className="error-message"
                   />
                 </div>
+                {/* End of Symptoms */}
                 <br></br>
+                {/* Begin of COVID positive */}
                 <p> Have you tested positive for COVID?</p>
                 <div role="group" aria-labelledby="covidgroup">
                   <div className="form-check form-check-inline">
@@ -206,7 +240,7 @@ export default function CovidForm() {
                       value="true"
                       className="form-check-input"
                     />
-                    <label class="form-check-label">Yes</label>
+                    <label className="form-check-label">Yes</label>
                   </div>
 
                   <div className="form-check form-check-inline">
@@ -216,7 +250,7 @@ export default function CovidForm() {
                       value="false"
                       className="form-check-input"
                     />
-                    <label class="form-check-label">No</label>
+                    <label className="form-check-label">No</label>
                   </div>
                   <ErrorMessage
                     name="covid"
@@ -224,6 +258,7 @@ export default function CovidForm() {
                     className="error-message"
                   />
                 </div>
+                {/* End of COVID positive */}
                 <br></br>
                 <div>
                   <CovidModal
@@ -232,7 +267,7 @@ export default function CovidForm() {
                     setSubmitted={setSubmitted}
                     data={values}
                   ></CovidModal>
-                  <button type="submit" class="btn-primary">
+                  <button type="submit" className="btn-primary btn-lg">
                     Submit
                   </button>
                 </div>
@@ -246,8 +281,9 @@ export default function CovidForm() {
               Show the user their submitted data and quarantine end date
               once the form has been submitted.
           */}
-          <div>
-            <p>Thank you for your submission</p>
+          <div className="thankyou-response">
+            <h3>Thank you for your submission</h3>
+            <Image fluid src={dog}></Image>
           </div>
         </>
       )}

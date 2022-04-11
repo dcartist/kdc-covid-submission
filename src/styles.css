@@ -31,3 +31,26 @@
   display: flex;
 
 }
+
+.loading{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 80vh;
+}
+.thankyou-response{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 60vh;
+  max-width: 70vw;
+}
+
+.app-spacing{
+  margin: 20px;
+  padding: 20px;
+}

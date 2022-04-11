@@ -4,7 +4,7 @@ export default function Navigation() {
   return (
     <>
     
-    <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark" className="text-white">
     <Container>
     <Navbar.Brand href="/" className="logo">ABC Schools</Navbar.Brand>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
