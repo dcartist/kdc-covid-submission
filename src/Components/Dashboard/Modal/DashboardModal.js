@@ -6,11 +6,7 @@ export default function DashboardModal(props) {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-//     <ul className="list-group list-group-flush">
 
-//     {details}
-// </ul>
-    console.log(props)
     return (
       <>
         <Button variant="primary" onClick={handleShow}>
