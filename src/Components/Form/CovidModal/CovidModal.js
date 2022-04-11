@@ -5,7 +5,7 @@
         const handleClose = () => {
         axios.post(`https://obscure-spire-94534.herokuapp.com/api/new`, props.data)
         .then(res => {
-        setShow(false)
+        // setShow(false)
         props.setModalShow(false)
         props.setSubmitted(true)
           })
