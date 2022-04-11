@@ -29,7 +29,6 @@ export default function About() {
   <li className="list-group-item">Formik</li>
   <li className="list-group-item">Yup</li>
   <li className="list-group-item">Axios</li>
-  <li className="list-group-item">Node-sass</li>
 </ul>
     </Col>
     <Col>
