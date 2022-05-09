@@ -1,2 +1,2 @@
 # kdc-covid-submission
-Created with CodeSandbox
+Covid submission form built in reactJS with Formik, and ReactBootstrap
