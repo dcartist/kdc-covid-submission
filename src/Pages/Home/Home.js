@@ -8,7 +8,7 @@ export default function Home() {
       <Container fluid className="home-base mw-100">
         <Row className="align-items-center">
           <Col sm={8}>
-            <Image src="https://kdc-covid-submission-dcartist.vercel.app/images/dogsick.jpg" fluid></Image>
+            <Image src={dog} fluid></Image>
           </Col>
           <Col sm={4}>
             <p className="display-6">COVID CASE FORM</p>
@@ -27,7 +27,7 @@ export default function Home() {
             <Link to="/dashboard">
               <Button className="mb-3">View COVID Dashboard</Button>
             </Link>
-            <p className="text-muted">Created by Candidate C.</p>
+            {/* <p className="text-muted">Created by Candidate C.</p> */}
           </Col>
         </Row>
       </Container>

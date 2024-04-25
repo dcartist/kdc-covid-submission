@@ -7,7 +7,7 @@ export default function DataTable() {
     const [loadedResults, setLoaded] = useState(false)
     useEffect(async () => {
         const result = await axios(
-          'https://obscure-spire-94534.herokuapp.com/api/',
+          'https://obscure-spire-94534-f3b3fa7468c2.herokuapp.com/api/',
         );
         setData(result.data.reverse());
       })
