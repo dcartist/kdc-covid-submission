@@ -3,7 +3,7 @@
     import axios from 'axios';
     export default function CovidModal(props) {
         const handleClose = () => {
-        axios.post(`https://obscure-spire-94534.herokuapp.com/api/new`, props.data)
+        axios.post(`https://obscure-spire-94534-f3b3fa7468c2.herokuapp.com/api/new`, props.data)
         .then(res => {
         // setShow(false)
         props.setModalShow(false)
